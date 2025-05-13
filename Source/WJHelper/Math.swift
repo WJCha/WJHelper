@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import WJHelper_Objc
 
 public class Math {
     
     static public func add(num1: Int, num2: Int) -> Int {
-        return num1 + num2
+        return WJMath.add(num1, num2: num2)
     }
     
 }
