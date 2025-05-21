@@ -71,10 +71,10 @@ public class WJHeaderPageView: UIView {
     
     /// 协调器，将其传递给子列表。
     /// 在子列表 ScrollView 的 scrollViewDidScroll：滚动方法中调用 coordinator 的 listScrollViewDidScroll：用于处理主视图 ScrollView 和子视图 ScrollView 滑动联动
-    private(set) var coordinator: WJHeaderPageViewCoordinateProtocol!
+    public private(set) var coordinator: WJHeaderPageViewCoordinateProtocol!
 
     /// 主容器滚动视图，即外层滚动视图
-    private(set) lazy var mainCollectionView: WJHeaderPageMainCollectionView = getCollectionView
+    public private(set) lazy var mainCollectionView: WJHeaderPageMainCollectionView = getCollectionView
     
     /// 分类标题
     weak private var categoryTitleView: UIView?

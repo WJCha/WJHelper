@@ -15,12 +15,12 @@ public class WJThrottler {
     private let interval: TimeInterval
     private let queue: DispatchQueue
  
-    init(interval: TimeInterval, queue: DispatchQueue = .main) {
+    public init(interval: TimeInterval, queue: DispatchQueue = .main) {
         self.interval = interval
         self.queue = queue
     }
  
-    func throttle(_ action: @Sendable @escaping () -> Void) {
+    public func throttle(_ action: @Sendable @escaping () -> Void) {
         let now = Date()
         if let lastFireTime = lastFireTime, now.timeIntervalSince(lastFireTime) < interval {
             return
