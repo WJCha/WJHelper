@@ -11,11 +11,21 @@ let package = Package(
         .library(
             name: "WJHeaderPageView",
             targets: ["WJHeaderPageView"]),
+        .library(
+            name: "CollectionViewLayout",
+            targets: ["CollectionViewLayout"]),
+        .library(
+            name: "WJPhotoTool",
+            targets: ["WJPhotoTool"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "WJHeaderPageView"),
+        .target(
+            name: "CollectionViewLayout"),
+        .target(
+            name: "WJPhotoTool"),
     ]
 )
