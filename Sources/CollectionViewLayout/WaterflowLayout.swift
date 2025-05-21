@@ -49,9 +49,9 @@ open class WaterflowLayout: UICollectionViewLayout {
     public weak var delegate: WaterflowLayoutDelegate?
     
     /// 当前可滚动的最大高度
-    private(set) var maxContentHeight: CGFloat = 0
+    public private(set) var maxContentHeight: CGFloat = 0
     /// 所有布局属性
-    private(set) var layoutAttributes: [UICollectionViewLayoutAttributes] = []
+    public private(set) var layoutAttributes: [UICollectionViewLayoutAttributes] = []
     /// 存放每一列的最新高度(含组头组尾高度)
     private(set) lazy var columnHeights: [CGFloat] = []
     
@@ -66,7 +66,7 @@ open class WaterflowLayout: UICollectionViewLayout {
         columnHeights = Array(repeating: collectionView.contentInset.top, count: columnOfWaterflowLayout)
         
         
-        // 获取组数
+        // 获取组数，创建对应布局属性
         let numberOfSections = collectionView.numberOfSections
         for section in 0 ..< numberOfSections {
             
@@ -201,10 +201,10 @@ open class WaterflowLayout: UICollectionViewLayout {
                 visibleAttributesArray.append(attribute)
             }
         }
-
+        
         return visibleAttributesArray
     }
-
+    
     
     /// 返回可滚动范围
     open override var collectionViewContentSize: CGSize { CGSize(width: 0, height: maxContentHeight) }
