@@ -61,9 +61,9 @@ public class WJHeaderPageView: UIView {
     
     
     /// 代理
-    weak var delegate: WJHeaderPageViewDelegate?
+    public weak var delegate: WJHeaderPageViewDelegate?
     /// 吸顶偏移量，大于 0，正数越大越往下沉, 取整数，在比较时可以避免一些小数点精度问题
-    var pinOffset: Int = 0 { didSet { pinOffset = max(pinOffset, 0) } }
+    public var pinOffset: Int = 0 { didSet { pinOffset = max(pinOffset, 0) } }
     
     /// 吸顶进度
     private(set) var progress: CGFloat = 0
