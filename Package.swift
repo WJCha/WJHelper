@@ -12,8 +12,8 @@ let package = Package(
             name: "WJHeaderPageView",
             targets: ["WJHeaderPageView"]),
         .library(
-            name: "PopupViewScheduler",
-            targets: ["PopupViewScheduler"]),
+            name: "PopupScheduler",
+            targets: ["PopupScheduler"]),
         .library(
             name: "CollectionViewLayout",
             targets: ["CollectionViewLayout"]),
@@ -29,7 +29,7 @@ let package = Package(
         .target(
             name: "CollectionViewLayout"),
         .target(
-            name: "PopupViewScheduler"),
+            name: "PopupScheduler"),
         .target(
             name: "WJPhotoTool"),
     ]
