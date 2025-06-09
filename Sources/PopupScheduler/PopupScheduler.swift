@@ -165,10 +165,10 @@ public class PopupScheduler {
     
     // 弹窗配置
     public struct Configuration {
-        var backgroundColor: UIColor = UIColor.black.withAlphaComponent(0.5)
-        var showBackground: Bool = true
-        var dismissOnBackgroundTap: Bool = true
-        var position: Position = .center
+        var backgroundColor: UIColor
+        var showBackground: Bool
+        var dismissOnBackgroundTap: Bool
+        var position: Position
         
         public enum Position {
             case center
@@ -273,7 +273,7 @@ public extension PopupScheduler {
         schedule(popups: items)
     }
     
-    /// 主动挂起弹窗队列
+    /// 挂起弹窗队列（可选择是否同时关闭当前正在显示的弹窗）
     func suspend(hideCurrentPopup: Bool = true) {
         if hideCurrentPopup {
             isSuspended = true
@@ -283,6 +283,18 @@ public extension PopupScheduler {
             isSuspended = true
         }
         
+    }
+    
+    /// 关闭当前显示的弹窗尝试显示下一页
+    func hideCurrentAndShowNextIfNeeded() {
+        hideCurrentPopup()
+    }
+    
+
+    /// 恢复弹窗队列
+    func resume() {
+        isSuspended = false
+        showNextIfNeeded()
     }
     
     /// 回收当前弹窗到队列并挂起队列，后续用户手动恢复后将重新显示
@@ -298,22 +310,11 @@ public extension PopupScheduler {
     
     }
     
-    /// 恢复弹窗队列
-    func resume() {
-        isSuspended = false
-        showNextIfNeeded()
-    }
-    
     /// 清空所有待显示弹窗
     func clearQueue() {
         queue.removeAll()
     }
     
-    /// 关闭当前显示的弹窗，如果队列没有挂起，会显示下一页（如果有）
-    func dismissCurrentPopup() {
-        hideCurrentPopup()
-        
-    }
     
     /// 检查当前是否在特定页面
     static func isOnViewController(_ viewControllerType: UIViewController.Type) -> Bool {
