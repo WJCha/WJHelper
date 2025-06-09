@@ -177,14 +177,16 @@ public class PopupScheduler {
             case custom(frame: CGRect)
         }
         
-        public init(backgroundColor: UIColor, showBackground: Bool, dismissOnBackgroundTap: Bool, position: Position) {
+        public init(backgroundColor: UIColor = UIColor.black.withAlphaComponent(0.5),
+                    showBackground: Bool = true,
+                    dismissOnBackgroundTap: Bool = true,
+                    position: Position = .center
+        ) {
             self.backgroundColor = backgroundColor
             self.showBackground = showBackground
             self.dismissOnBackgroundTap = dismissOnBackgroundTap
             self.position = position
         }
-        
-        public init() {}
         
         @MainActor public static let `default` = Configuration()
     }
