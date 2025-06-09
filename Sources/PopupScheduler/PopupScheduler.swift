@@ -364,7 +364,7 @@ extension PopupScheduler {
     }
     
     private func showPopup(_ item: PopupItem) {
-        guard let window = UIApplication.shared.keyWindow else { return }
+        guard let window = UIApplication.shared.mainWindow else { return }
         
         let popup = item.popupView
         let config = item.configuration
