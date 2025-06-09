@@ -134,7 +134,7 @@ public extension Popupable {
 @MainActor
 public class PopupScheduler {
     // 单例
-    static let shared = PopupScheduler()
+    public static let shared = PopupScheduler()
     private init() {}
     
     // 队列挂起恢复自动管理配置
