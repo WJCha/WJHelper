@@ -5,6 +5,34 @@
 //
 //  Created by Jie on 2025/6/6.
 //
+/**
+ 使用示例：
+ 
+ // 创建多个普通弹窗
+ let popup1 = ClickablePopupView()
+ popup1.backgroundColor = .systemPink
+ popup1.priority = .middle
+ 
+ // 设置第一个弹窗的点击事件
+ popup1.onCloseCurrentPopupAndJump = { [weak self] in
+     let vc = HomeViewController()
+     vc.modalPresentationStyle = .fullScreen
+     self?.present(vc, animated: true)
+     
+ }
+ 
+ let popup2 = ClickablePopupView()
+ popup2.backgroundColor = .orange
+ popup2.priority = .high
+
+ PopupScheduler.shared.clearQueue()
+ 
+ // 调度普通弹窗
+ PopupScheduler.shared.schedule(popups: [
+     (popup1, PopupScheduler.Configuration.init(backgroundColor: .cyan), { true }, { print("第1显示完成") }),
+     (popup2, .default, { PopupScheduler.isOnViewController(HomeViewController.self) }, { print("第2显示完成") })
+ ])
+ */
 
 import UIKit
 
