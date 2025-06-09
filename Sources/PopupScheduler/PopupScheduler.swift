@@ -138,7 +138,7 @@ public class PopupScheduler {
     private init() {}
     
     // 队列挂起恢复自动管理配置
-    private(set) var autoManageConfig = AutoManageConfiguration()
+    public private(set) var autoManageConfig = AutoManageConfiguration()
     
     private var queue = [PopupItem]()
     private var currentPopup: PopupItem?
