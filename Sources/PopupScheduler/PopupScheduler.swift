@@ -153,12 +153,12 @@ public class PopupScheduler {
     
     // 弹窗模型
     public struct PopupItem {
-        let popupView: Popupable
-        let configuration: Configuration
-        let condition: PopupDisplayCondition?
-        let completion: (() -> Void)?
+        public let popupView: Popupable
+        public let configuration: Configuration
+        public let condition: PopupDisplayCondition?
+        public let completion: (() -> Void)?
         
-        @MainActor var priority: PopupPriority {
+        @MainActor public var priority: PopupPriority {
             return popupView.priority
         }
     }
@@ -194,11 +194,11 @@ public class PopupScheduler {
     /// 自动管理队列的配置
     public struct AutoManageConfiguration {
         /// 是否启用自动管理（默认关闭）
-        var enabled: Bool = false
+        public var enabled: Bool = false
         /// 是否在视图控制器消失时挂起队列（默认 true）
-        var suspendOnWillDisappear: Bool = true
+        public var suspendOnWillDisappear: Bool = true
         /// 是否在视图控制器出现时恢复队列（默认 true）
-        var resumeOnAppear: Bool = true
+        public var resumeOnAppear: Bool = true
     }
     
 }
